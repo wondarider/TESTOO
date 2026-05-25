@@ -144,51 +144,43 @@ body {
    ========================================================================== */
 
 
+/* Force the container to hold 3 columns max on desktop, 1 on mobile */
 .image-gallery {
   display: grid !important;
-  
-  /* CHANGE THIS LINE: Forces columns to be a maximum of 1fr (one equal fraction) 
-     but stops them from stretching past 320px if they are sitting alone */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 320px)) !important;
-  
-  /* Centers the cards on the screen if there's leftover space */
-  justify-content: center !important; 
-  
-  gap: 2rem !important;
-  max-height: none !important;
-  height: auto !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 exactly equal columns */
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin-bottom: 3rem !important;
 }
 
+/* Fix the card boxes from expanding too wide */
 .gallery-card {
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
+/* Hard-lock the image placeholder box sizes */
 .image-placeholder {
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  height: 180px; /* Constrains the image height explicitly */
-  max-height: 180px;
-  width: 100%;
-  overflow: hidden; /* Stops images from bleeding into the footer area */
-  padding: 0;
-  margin-bottom: 1rem;
-  position: relative;
+  height: 160px !important; /* Slightly shorter for better grid balance */
+  max-height: 160px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
 }
 
+/* Keep the image perfectly inside the box rules */
 .gallery-img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover; 
-  object-position: center;
-  display: block;
-} 
+  object-fit: cover !important; 
+}
+
+/* Responsive fix: If the screen is mobile-sized, drop to 1 column */
+@media (max-width: 768px) {
+  .image-gallery {
+    grid-template-columns: 1fr !important; /* Stack them vertically on phones */
+  }
+}
 }
 
 /* 2. Force the image to submit to the container boundaries */
@@ -289,4 +281,11 @@ body {
 .image-placeholder {
   padding: 0; /* Removes padding so the image touches the container edges perfectly */
   overflow: hidden; /* Ensures the image doesn't bleed past the rounded corners */
+}
+/* Fix the top icon sizing */
+.hero-header .my-icon {
+  width: 60px !important;   /* Shrinks the 150px giant down to header size */
+  height: 60px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
 }
