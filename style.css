@@ -239,3 +239,22 @@ body {
 .social-links a:hover {
   color: var(--text-main);
 }
+  .gallery-img {
+  width: 100%;
+  height: 100%;
+  
+  /* 1. This prevents the image from distorting by cropping it to fit perfectly */
+  object-fit: cover; 
+  
+  /* 2. Keeps the image centered inside the card cropping area */
+  object-position: center; 
+  
+  /* 3. Matches the rounded corners of your gallery card placeholder */
+  border-radius: 6px; 
+}
+
+/* Optional adjustment: Clean up the padding on the container */
+.image-placeholder {
+  padding: 0; /* Removes padding so the image touches the container edges perfectly */
+  overflow: hidden; /* Ensures the image doesn't bleed past the rounded corners */
+}
