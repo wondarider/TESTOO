@@ -65,9 +65,6 @@ body {
   color: var(--accent-color); /* Glow color when hovered */
 }
 
-
-
-
 /* ==========================================================================
    B & C. MAIN TITLE, ICON, & SUBTITLE PLACEMENT
    ========================================================================== */
@@ -77,34 +74,30 @@ body {
   margin: 0 auto;
   padding: 2rem;
   flex: 1; /* Pushes footer down to bottom of screen if page text is short */
-
 }
-/* ICON */
 
 .hero-header {
   display: flex;
   align-items: center;
   width: 100%;
-
- /* This pushes the H1 text to the far left and the icon to the far right */
+  /* This pushes the H1 text to the far left and the icon to the far right */
   justify-content: space-between; 
-
   flex-wrap: wrap;
   margin-bottom: 0.5rem;
+}
 
-/* style the SVG  */
-       .my-icon {
-  width: 150px;  
-  height: 150px;
-  display: block; /* <-- Ensures the SVG acts as a layout element */
-  flex-shrink: 0; /* <-- Prevents the icon from being crushed on small screens */
+/* FIXED: Style rules for the SVG are now outside of the parent brackets */
+.my-icon {
+  width: 60px !important;   /* Shrinks the 150px giant down to elegant header size */
+  height: 60px !important;
+  display: block !important; 
+  flex-shrink: 0 !important; 
   transition: transform 0.3s ease;
 }
 
 /* Hover effects */
 .my-icon:hover {
-  transform: scale(1.1);
-
+  transform: scale(1.1) !important;
 }
 
 .title-icon {
@@ -123,7 +116,6 @@ body {
   margin-bottom: 2.5rem; /* Gap below the subtitle container */
 }
 
-
 /* ==========================================================================
    D. MAIN BODY OF TEXT
    ========================================================================== */
@@ -138,13 +130,10 @@ body {
   color: #c8d8e8;
 }
 
-
 /* ==========================================================================
    E. IMAGE SECTION (GRID LAYOUT FOR IMAGES/ICONS)
    ========================================================================== */
-
-
-/* Force the container to hold 3 columns max on desktop, 1 on mobile */
+/* Force the container to hold 3 columns max on desktop */
 .image-gallery {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 exactly equal columns */
@@ -159,20 +148,28 @@ body {
   width: 100% !important;
 }
 
+.gallery-card h3 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
 /* Hard-lock the image placeholder box sizes */
 .image-placeholder {
-  height: 160px !important; /* Slightly shorter for better grid balance */
+  height: 160px !important; 
   max-height: 160px !important;
   width: 100% !important;
   overflow: hidden !important;
   border-radius: 8px !important;
+  padding: 0 !important; /* Cleaned up container padding */
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
-/* Keep the image perfectly inside the box rules */
+/* FIXED: Unified, single image definition block */
 .gallery-img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important; 
+  object-position: center !important;
 }
 
 /* Responsive fix: If the screen is mobile-sized, drop to 1 column */
@@ -181,23 +178,6 @@ body {
     grid-template-columns: 1fr !important; /* Stack them vertically on phones */
   }
 }
-}
-
-/* 2. Force the image to submit to the container boundaries */
-.gallery-img {
-  width: 100% !important;
-  height: 100% !important;
-  
-  /* This crops the image beautifully to fit the 180px height without squishing it */
-  object-fit: cover; 
-  object-position: center; 
-}
-
-.gallery-card h3 {
-  font-size: 1.1rem;
-  color: var(--text-main);
-}
-
 
 /* ==========================================================================
    F. FOOTER WITH LINKS & UTILITIES
@@ -262,30 +242,4 @@ body {
 .footer-nav a:hover,
 .social-links a:hover {
   color: var(--text-main);
-}
-  .gallery-img {
-  width: 100%;
-  height: 100%;
-  
-  /* 1. This prevents the image from distorting by cropping it to fit perfectly */
-  object-fit: cover; 
-  
-  /* 2. Keeps the image centered inside the card cropping area */
-  object-position: center; 
-  
-  /* 3. Matches the rounded corners of your gallery card placeholder */
-  border-radius: 6px; 
-}
-
-/* Optional adjustment: Clean up the padding on the container */
-.image-placeholder {
-  padding: 0; /* Removes padding so the image touches the container edges perfectly */
-  overflow: hidden; /* Ensures the image doesn't bleed past the rounded corners */
-}
-/* Fix the top icon sizing */
-.hero-header .my-icon {
-  width: 60px !important;   /* Shrinks the 150px giant down to header size */
-  height: 60px !important;
-  display: block !important;
-  flex-shrink: 0 !important;
 }
