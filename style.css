@@ -65,6 +65,19 @@ body {
   color: var(--accent-color); /* Glow color when hovered */
 }
 
+/* ICON
+/* style the SVG  */
+        .my-icon {
+            width: 150px;  /* Change size easily */
+            height: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Example: Make it pop when a user hovers over it */
+        .my-icon:hover {
+            transform: scale(1.1);
+        }
+
 
 /* ==========================================================================
    B & C. MAIN TITLE, ICON, & SUBTITLE PLACEMENT
