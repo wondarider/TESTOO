@@ -65,18 +65,7 @@ body {
   color: var(--accent-color); /* Glow color when hovered */
 }
 
-/* ICON
-/* style the SVG  */
-        .my-icon {
-            width: 150px;  /* Change size easily */
-            height: 150px;
-            transition: transform 0.3s ease;
-        }
 
-        /* Example: Make it pop when a user hovers over it */
-        .my-icon:hover {
-            transform: scale(1.1);
-        }
 
 
 /* ==========================================================================
@@ -88,20 +77,34 @@ body {
   margin: 0 auto;
   padding: 2rem;
   flex: 1; /* Pushes footer down to bottom of screen if page text is short */
+
 }
+/* ICON */
 
 .hero-header {
   display: flex;
   align-items: center;
   width: 100%;
-  
-  /* This pushes the text to the far left and the icon to the far right */
+
+ /* This pushes the H1 text to the far left and the icon to the far right */
   justify-content: space-between; 
 
   flex-wrap: wrap;
-  
-  gap: 0.75rem; 
   margin-bottom: 0.5rem;
+
+/* style the SVG  */
+       .my-icon {
+  width: 150px;  
+  height: 150px;
+  display: block; /* <-- Ensures the SVG acts as a layout element */
+  flex-shrink: 0; /* <-- Prevents the icon from being crushed on small screens */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effects */
+.my-icon:hover {
+  transform: scale(1.1);
+
 }
 
 .title-icon {
