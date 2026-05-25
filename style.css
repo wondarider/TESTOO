@@ -157,16 +157,31 @@ body {
   text-align: center;
 }
 
+/* 1. Fix the container box so nothing can spill out of it */
 .image-placeholder {
   background-color: rgba(255, 255, 255, 0.03);
-  border: 2px dashed rgba(255, 255, 255, 0.1); /* Dashed outline indicating empty spot */
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  height: 180px; /* Standard starting box height for assets */
+  height: 180px; 
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-muted);
   margin-bottom: 1rem;
+  
+  /* ADD THESE TWO LINES TO CLIP OVERFLOW */
+  overflow: hidden; 
+  padding: 0; 
+}
+
+/* 2. Force the image to submit to the container boundaries */
+.gallery-img {
+  width: 100% !important;
+  height: 100% !important;
+  
+  /* This crops the image beautifully to fit the 180px height without squishing it */
+  object-fit: cover; 
+  object-position: center; 
 }
 
 .gallery-card h3 {
