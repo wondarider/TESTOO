@@ -93,9 +93,12 @@ body {
 .hero-header {
   display: flex;
   align-items: center;
+  width: 100%;
   
   /* This pushes the text to the far left and the icon to the far right */
   justify-content: space-between; 
+
+  flex-wrap: wrap;
   
   gap: 0.75rem; 
   margin-bottom: 0.5rem;
