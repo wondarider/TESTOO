@@ -145,14 +145,20 @@ body {
 /* ==========================================================================
    E. IMAGE SECTION (GRID LAYOUT FOR IMAGES/ICONS)
    ========================================================================== */
+   
 .image-gallery {
-  display: grid;
-  /* This creates a clean 3-column row that safely collapses to 1 column on phones */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-  gap: 2rem; 
-  margin-bottom: 4rem;
-  width: 100%;
-  clear: both; /* Prevents previous floating elements from breaking the layout */
+  display: grid !important;
+  
+  /* CHANGE THIS LINE: Forces columns to be a maximum of 1fr (one equal fraction) 
+     but stops them from stretching past 320px if they are sitting alone */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 320px)) !important;
+  
+  /* Centers the cards on the screen if there's leftover space */
+  justify-content: center !important; 
+  
+  gap: 2rem !important;
+  max-height: none !important;
+  height: auto !important;
 }
 
 .gallery-card {
