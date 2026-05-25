@@ -142,11 +142,17 @@ body {
 /* ==========================================================================
    E. IMAGE SECTION (GRID LAYOUT FOR IMAGES/ICONS)
    ========================================================================== */
+/* ==========================================================================
+   E. IMAGE SECTION (GRID LAYOUT FOR IMAGES/ICONS)
+   ========================================================================== */
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-responsive columns */
-  gap: 2rem; /* Spacing between image grids */
-  margin-bottom: 5rem;
+  /* This creates a clean 3-column row that safely collapses to 1 column on phones */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+  gap: 2rem; 
+  margin-bottom: 4rem;
+  width: 100%;
+  clear: both; /* Prevents previous floating elements from breaking the layout */
 }
 
 .gallery-card {
@@ -155,23 +161,30 @@ body {
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 1. Fix the container box so nothing can spill out of it */
 .image-placeholder {
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  height: 180px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
+  height: 180px; /* Constrains the image height explicitly */
+  max-height: 180px;
+  width: 100%;
+  overflow: hidden; /* Stops images from bleeding into the footer area */
+  padding: 0;
   margin-bottom: 1rem;
-  
-  /* ADD THESE TWO LINES TO CLIP OVERFLOW */
-  overflow: hidden; 
-  padding: 0; 
+  position: relative;
+}
+
+.gallery-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; 
+  object-position: center;
+  display: block;
+} 
 }
 
 /* 2. Force the image to submit to the container boundaries */
