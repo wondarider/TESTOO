@@ -1,0 +1,218 @@
+/* ==========================================================================
+   0. RESET & BASE THEME VARIABLES
+   ========================================================================== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  /* EDIT LATER: Change your color palette variables here */
+  --bg-color: #0b1220;
+  --surface-color: #111827;
+  --text-main: #e8f0f7;
+  --text-muted: #8da2b5;
+  --accent-color: #38bdf8;
+  --border-color: rgba(56, 189, 248, 0.15);
+  
+  --max-width: 1100px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   A. NAVIGATION (TOP RIGHT PLACEMENT)
+   ========================================================================== */
+.site-header {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between; /* Pushes Logo to left, Nav to right */
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.top-nav {
+  display: flex;
+  gap: 1.5rem; /* Space between nav buttons */
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-btn:hover {
+  color: var(--accent-color); /* Glow color when hovered */
+}
+
+
+/* ==========================================================================
+   B & C. MAIN TITLE, ICON, & SUBTITLE PLACEMENT
+   ========================================================================== */
+.main-content {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  flex: 1; /* Pushes footer down to bottom of screen if page text is short */
+}
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Distance between small icon and title text */
+  margin-bottom: 0.5rem;
+}
+
+.title-icon {
+  font-size: 2rem; /* Size of your small title icon */
+}
+
+.main-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.sub-title {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem; /* Gap below the subtitle container */
+}
+
+
+/* ==========================================================================
+   D. MAIN BODY OF TEXT
+   ========================================================================== */
+.main-body {
+  max-width: 750px; /* Makes reading long paragraphs much easier on the eye */
+  margin-bottom: 4rem;
+}
+
+.main-body p {
+  margin-bottom: 1.5rem; /* Gap between separate body paragraphs */
+  font-size: 1.05rem;
+  color: #c8d8e8;
+}
+
+
+/* ==========================================================================
+   E. IMAGE SECTION (GRID LAYOUT FOR IMAGES/ICONS)
+   ========================================================================== */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-responsive columns */
+  gap: 2rem; /* Spacing between image grids */
+  margin-bottom: 5rem;
+}
+
+.gallery-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.image-placeholder {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 2px dashed rgba(255, 255, 255, 0.1); /* Dashed outline indicating empty spot */
+  border-radius: 8px;
+  height: 180px; /* Standard starting box height for assets */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.gallery-card h3 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+
+/* ==========================================================================
+   F. FOOTER WITH LINKS & UTILITIES
+   ========================================================================== */
+.site-footer {
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  padding: 3rem 2rem;
+  margin-top: auto; /* Forces footer flush to viewport bottom */
+}
+
+.footer-links-row {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links-row h4 {
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.footer-links-row a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links-row a:hover {
+  text-decoration: underline;
+}
+
+.footer-divider {
+  max-width: var(--max-width);
+  margin: 1.5rem auto;
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.footer-bottom-row {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Navigation Left, Socials Right */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-nav a,
+.social-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-right: 1.5rem;
+}
+
+.footer-nav a:hover,
+.social-links a:hover {
+  color: var(--text-main);
+}
