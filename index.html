@@ -16,10 +16,10 @@
     </div>
     
     <nav class="top-nav">
-      <a href="#" class="nav-btn">NAV1</a>
-      <a href="#" class="nav-btn">NAV2</a>
-      <a href="#" class="nav-btn">NAV3</a>
-      <a href="#" class="nav-btn">NAV4</a>
+      <a href="#" class="nav-btn">ABOUT</a>
+      <a href="#" class="nav-btn">HOW IT WORKS</a>
+      <a href="#" class="nav-btn">CONTACT US</a>
+      <a href="#" class="nav-btn">GET INVOLVED</a>
     </nav>
   </header>
 
@@ -28,7 +28,7 @@
     <div class="hero-header">
       <h1 class="main-title">A structured approach to protecting our loved ones from online harms</h1>
       
-      <svg class="my-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <svg class="my-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="46" fill="#f0f4f8" />
         <rect x="34" y="20" width="32" height="56" rx="6" fill="#2c3e50" />
         <rect x="37" y="24" width="26" height="44" rx="2" fill="#ecf0f1" />
@@ -59,6 +59,8 @@ this both illustrates what ‘good protection’ looks like, and provides a stru
 <p>It is also a voluntary toolset that can assess, measure and produce a prioritised uplift roadmap for schools that already have some form of online safety program.</p>
       <p>The DWSF is arranged like industry security frameworks, based on the CO:RE 4Cs classification of online risks and is inspired by existing online safety resources..</p>
     </article>
+
+<button class="contact-btn" id="openFormBtn">Contact Us</button> <!--button html-->
 
     <section class="image-gallery">
       <div class="gallery-card">
@@ -99,18 +101,62 @@ this both illustrates what ‘good protection’ looks like, and provides a stru
     <div class="footer-bottom-row">
       <nav class="footer-nav">
         <a href="#">About Us</a>
-        <a href="#">Privacy Policy</a>
+        <a href="#">License</a>
         <a href="#">Contact</a>
       </nav>
       
       <div class="social-links">
-        <a href="#">Twitter</a>
+        <a href="#">X</a>
         <a href="#">LinkedIn</a>
         <a href="#">GitHub</a>
       </div>
     </div>
 
   </footer>
+<div class="modal-overlay" id="modalOverlay">
+    <div class="form-container">
+        <button class="close-btn" id="closeFormBtn">&times;</button>
+        <h2>Contact Us</h2>
+        
+        <form action="/submit-form-endpoint" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
 
+<script>
+    const openBtn = document.getElementById('openFormBtn');
+    const closeBtn = document.getElementById('closeFormBtn');
+    const modal = document.getElementById('modalOverlay');
+
+    openBtn.addEventListener('click', () => {
+        modal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+</script>
 </body>
 </html>
