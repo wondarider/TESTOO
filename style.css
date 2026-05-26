@@ -120,7 +120,7 @@ body {
    D. MAIN BODY OF TEXT
    ========================================================================== */
 .main-body {
-  max-width: 750px; /* Makes reading long paragraphs much easier on the eye */
+ /* max-width: 750px; /* Makes reading long paragraphs much easier on the eye */
   margin-bottom: 4rem;
 }
 
