@@ -254,7 +254,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-bottom: 24px;
-    display: inline-block;f
+    display: inline-block;
 }
 
 .contact-btn:hover {
